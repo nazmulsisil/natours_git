@@ -1,0 +1,230 @@
+.card {
+    height: 52rem;
+    position: relative;
+    perspective: 150rem;
+    
+    
+    &__side {
+        height: 52rem;
+        width: 100%;
+        backface-visibility: hidden;
+        position: absolute; 
+        top: 0;
+        left: 0;
+        transition: all 1s; 
+        border-radius: 4px; 
+        overflow: hidden;
+        box-shadow: 0 .5rem 2rem rgba(black,.3);
+
+        &--front {
+            
+       
+        }
+    
+        &--back {
+            transform: rotateY(180deg);
+        } 
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);    
+    }
+    &:hover &__side--back {
+        transform: rotateY(0);    
+    }
+
+
+    &__picture {
+        height: 23rem;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: screen;
+        position: relative;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        overflow: hidden;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);           
+        }
+
+        &--1 {
+             background-image: linear-gradient(to right bottom, $color-secondery-light, $color-secondery-dark), url(../img/nat-5-360.jpg);
+        }
+        &--2 {
+             background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6-360.jpg);
+        }
+        &--3 {
+             background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7-360.jpg);
+        }
+
+    } 
+
+    &__text {
+        
+        text-transform: uppercase;
+        width: 75%;
+        color: $color-white;
+        font-size: 2.8rem;
+        line-height: 1.7;
+        font-weight: 300;
+        text-align: right;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;;
+    }
+    &__text-span {
+           
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding: 1rem 1.5rem;
+
+            &--1 {
+                background-image: linear-gradient(to right bottom, $color-secondery-light, $color-secondery-dark);
+            }
+            &--2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+            &--3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+            }
+        }
+
+    &__details {
+        width: 75%;
+        margin: 3rem auto 0 auto;
+        text-align: center;
+        list-style: none;
+        font-size: 1.4rem;
+    }
+
+    &__list {
+        padding: 1.4rem;
+        
+        &:not(:last-child) {   
+            border-bottom: 1px solid $color-grey-light-2; 
+        }
+    }
+
+
+    &__bakend {
+        height: 100%;
+        position: relative;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondery-light, $color-secondery-dark);
+            }
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+        }
+    }
+
+    &__bakend-box {
+        width: 90%;
+        position: absolute;
+        @include alc;
+        text-align: center;
+        color: $color-white;
+    }
+
+    &__bakend-text {
+        line-height: 1.7;  
+    }
+
+    &__bakend-money {
+        margin-bottom: 7.5rem;
+        font-size: 5.5rem;
+        font-weight: 100;
+        line-height: 1.7;  
+
+    }
+
+}
+
+// @include respond (tab) {
+@media only screen and (max-width: 56.25em),
+        only screen and (hover: none) {
+
+        .card { 
+            height: auto;
+            box-shadow: 0 .5rem 2rem rgba(black,.3);
+            
+        
+        &__side { 
+            height: auto;
+            position: relative; 
+            transition: all 1s; 
+            border-radius: 0; 
+            background: $color-white;
+            box-shadow: none;
+
+            &--back {
+                transform: rotateY(0); 
+            } 
+          
+        }
+
+        &:hover &__side--front {
+            transform: rotateY(0);    
+        }
+        &:hover &__side--back {
+            transform: rotateY(0);    
+        }
+
+        &__details {
+            margin: 1rem auto; 
+        }
+
+        &__bakend {
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            position: relative;
+            clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+        }
+        &__bakend-box {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            padding: 6rem 0 4rem 0;
+        }
+
+        &__bakend-text {
+            font-size: 1.4rem;  
+        }
+
+        &__bakend-money {
+            margin-bottom: 3.5rem;
+            font-size: 4.5rem;
+
+        }
+
+    }
+
+ 
+}
+
+@media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+            only screen and (min-width: 112.5em) {
+                
+                .card__picture {
+
+                        &--1 {
+                            background-image: linear-gradient(to right bottom, $color-secondery-light, $color-secondery-dark), url(../img/nat-5-720.jpg);
+                        }
+                        &--2 {
+                            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6-720.jpg);
+                        }
+                        &--3 {
+                            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7-720.jpg);
+                        }
+
+                } 
+        }

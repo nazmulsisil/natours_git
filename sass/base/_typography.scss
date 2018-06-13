@@ -1,0 +1,85 @@
+.heading-primary {
+
+    color: $color-white; 
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    
+
+    & * {
+    margin-bottom: 2rem;
+    }
+     
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        text-align: center;
+        letter-spacing: 3.4rem; 
+        animation: MoveInLeft 1s;
+ 
+        @include respond(phone) {       
+            letter-spacing: 1rem;
+            font-size: 5.5rem;
+        }
+    } 
+
+    &--sub {
+        display: block; 
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+        animation: MoveInRight 1s;
+
+        @include respond(phone) {      
+            letter-spacing: .2rem;
+            font-weight: 400;
+        }
+    } 
+}
+
+.heading-secondery {
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 3.5rem;
+    letter-spacing: .2rem;
+    background-image: linear-gradient(to right , rgba($color-primary-light,.8), rgba($color-primary-dark,.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: $point-two;
+
+    &:hover {
+        transform: skew(15deg,2deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba(0,0,0,0.2);
+    }
+
+    @include respond(tab) {  
+        width: 96%;
+    }
+
+    @include respond(phone) {  
+        font-size: 2.5rem;
+        width: 90%;
+    }
+}
+
+.heading-tertiary {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-size: $default-font-size;
+
+    @include respond(phone) {  
+        margin-bottom: 1.5rem;
+    }
+}
+
+.paragraph {
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+
+    @include respond(phone) {      
+        line-height: 1.5;
+        margin-bottom: 2.5rem;
+    }
+}

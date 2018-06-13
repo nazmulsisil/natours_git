@@ -1,0 +1,35 @@
+.feature-box {
+    background: rgba($color-white, .8);
+    padding: 4rem 2.5rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2rem 4rem rgba(black, .3);
+    transition: $point-two;
+
+    @include respond(tab-land) { 
+        height: 40rem;
+    } 
+    @include respond(tab) { 
+        height: auto;
+    }
+
+    &__icon {
+        font-size: 6rem;
+        display: inline-block;
+        margin-bottom: 2rem;
+        background-image: linear-gradient(to right , rgba($color-primary-light,.8), rgba($color-primary-dark,.8));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    &__text {
+        line-height: 1.6;
+    }
+
+    &:hover {
+        transform: translate(0, -1.5rem)scale( 1.02);
+        box-shadow: 0 1rem 3rem rgba(black, .3);
+    }
+
+} 

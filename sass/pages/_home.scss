@@ -1,0 +1,52 @@
+.about {
+    padding: 15rem 0 15rem 0;
+    margin: -15vh 0 0 0;
+
+    @include respond(tab) {
+         margin: -15vh 0 -25rem 0;
+    }
+    @include respond(phone) {
+         margin: -13vh 0 -25rem 0;
+    }
+}
+ 
+.feature {
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light,.8), rgba($color-primary-dark,.8)), url(../img/nat-4-low.jpg);
+    background-size: cover;
+    background-position: top;
+    transform: skewY(-9deg);
+
+    & > div {
+        transform: skewY(9deg);
+    }
+
+    @include respond(tab) {
+        margin-top: 25rem;
+
+        transform: skewY(-10deg);
+
+        & > div {
+            transform: skewY(10deg);
+        }
+    }
+    @include respond(phone) {
+        margin-top: 22rem;
+
+        transform: skewY(-11deg);
+
+        & > div {
+            transform: skewY(11deg);
+        }
+    }
+
+}
+
+.tours {
+    padding: 15rem 0 5rem 0;
+}
+
+.booking {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
